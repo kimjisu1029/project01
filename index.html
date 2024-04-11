@@ -46,6 +46,23 @@
       color: #fff !important;
     }
   </style>
+  <!-- 사용자가 현재 페이지에 접속을 하면 접속한 디바이스기기를 체크하여 모바일, 태블릿일경우 모바일 페이지로 이동 -->
+  <script>
+    //사용자가 접속한 디바이스 기기 체크하기
+    let mobile_keys=new Array('iPhone','iPad','Android','BlackBerry','Windows Phone','Windows CE','LG','MOT','SAMSUNG','SonyEricsson','Nokia');
+
+    //만약에 웹페이지 주소뒤에 move_pc_screen 값이 없다면
+    if(document.URL.match('move_pc_screen')) mobile_keys=null;
+
+    //위 배열값 개수만큼 반복하여 검사를 하고 모바일 사용자이면 아래 내용을 실행
+    for(i in mobile_keys){
+      //URL파라미터에 'move_pc_screen'가 포함되어 있지 않을때 아래 내용 적용
+      if(navigator.userAgent.match(mobile_keys[i]) !=null){
+        location.href='http://kimjisu.dothome.co.kr/김지수/04_개인프로젝트/00프로젝트/01_국순당/09_구현/mobile/index.html'; //모바일로 연결하라
+        break; //더이상 실행안함.
+      }
+    }
+  </script>
 </head>
 <body>
   <form name="검색" method="post" action="search">
@@ -135,7 +152,7 @@
   <!-- 메인영역 시작 -->
   <main>
     <!-- 1. 메인 슬라이드 -->
-    <article class="slide">
+    <article class="slide scroll_on">
       <h2>메인슬라이드</h2>
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
@@ -174,7 +191,7 @@
       </div>
     </article>
     <!-- 2. 제품소개 : 0329 라디오버튼을 활용한 이미지 슬라이드 참고 -->
-    <article class="menu_box">
+    <article class="menu_box scroll_on">
       <h4 class="menu_title">국순당 제품소개</h4>
       <input type="radio" id="tab01" name="a" checked><label for="tab01">신제품</label>
       <input type="radio" id="tab02" name="a"><label for="tab02">백세주</label>
@@ -422,43 +439,45 @@
     </article>
 
     <!-- 3. 회사소개 -->
-    <div class="company">
-      <div class="company_inner">
-        <h5>국순당</h5>
-        <p class="company_txt">
-          우리의 누룩으로 좋은 술을 빚는 집,<br>
-          국순당은 술을 빚기 전에 먼저 사람을 생각합니다.<br>
-        </p>
-        <p class="company_btn">
-          <a href="#" title="제품 자세히보기" id="readmore2">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
-        </p>
+    <article class="arti_company scroll_on">
+      <div class="company">
+        <div class="company_inner">
+          <h5>국순당</h5>
+          <p class="company_txt">
+            우리의 누룩으로 좋은 술을 빚는 집,<br>
+            국순당은 술을 빚기 전에 먼저 사람을 생각합니다.<br>
+          </p>
+          <p class="company_btn">
+            <a href="#" title="제품 자세히보기" id="readmore2">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="company_bottom">
-      <ul class="company_grid">
-        <li>
-          <h5>2023년 매출</h5><br>
-          매출액의 44%는 막걸리(탁주)<br>
-          22%는 국순당쌀바나나 외 기타제품, 19%는 약주 부문<br>
-          <p><span class="company_point">704</span> 억원</p>
-        </li>
-        <li>
-          <h5>대한민국 주류대상</h5><br>
-          국순당 생막걸리 우국생 (탁주-생막걸리부문)<br>
-          1000억 프리바이오 막걸리 (탁주-살균막걸리부문)<br>
-          <p><span class="company_point">대상</span> 수상</p>
-        </li>
-        <li>
-          <h5>수출의 탑</h5><br>
-          2020년 전통주업계 최초 500만불 수출의 탑 수상<br>
-          2021년 700만불 수출의 탑 수상<br>
-          <p><span class="company_point">700만불</span> 수출의 탑</p>
-        </li>
-      </ul>
-    </div>
+      <div class="company_bottom">
+        <ul class="company_grid">
+          <li>
+            <h5>2023년 매출</h5><br>
+            매출액의 44%는 막걸리(탁주)<br>
+            22%는 국순당쌀바나나 외 기타제품, 19%는 약주 부문<br>
+            <p><span class="company_point">704</span> 억원</p>
+          </li>
+          <li>
+            <h5>대한민국 주류대상</h5><br>
+            국순당 생막걸리 우국생 (탁주-생막걸리부문)<br>
+            1000억 프리바이오 막걸리 (탁주-살균막걸리부문)<br>
+            <p><span class="company_point">대상</span> 수상</p>
+          </li>
+          <li>
+            <h5>수출의 탑</h5><br>
+            2020년 전통주업계 최초 500만불 수출의 탑 수상<br>
+            2021년 700만불 수출의 탑 수상<br>
+            <p><span class="company_point">700만불</span> 수출의 탑</p>
+          </li>
+        </ul>
+      </div>
+    </article>
 
     <!-- 4. 광고이야기 : 0329 라디오버튼을 활용한 이미지 슬라이드 참고 -->
-    <div class="poster_box">
+    <div class="poster_box scroll_on">
       <h4>국순당 광고이야기</h4>
 
       <div #swiperRef="" class="swiper post_slide">
@@ -544,7 +563,7 @@
     </div>
 
     <!-- 5. 인스타그램 -->
-    <div class="insta_box">
+    <div class="insta_box scroll_on">
       <h4><i class="fa-brands fa-instagram"></i> <img src="./images/x_icon.svg" alt="X아이콘" class="x_icon"> @kooksoondang</h4>
       <ul class="insta_grid">
         <li><img src="./images/insta_01.jpg" alt="인스타이미지1"></li>
@@ -695,6 +714,7 @@
       slidesPerView: 3,
       centeredSlides: true,
       spaceBetween: 30,
+      initialSlide: 1,
       pagination: {
         el: ".swiper-pagination",
         type: "fraction",
@@ -742,7 +762,27 @@
         ]);
       });
 
-      </script>
+      // 전체 메뉴들 스크립트
+      $(document).ready(function() {
+        const $counters = $(".scroll_on");
+        const exposurePercentage = 100;
+        const loop = true;
+      $(window).on('scroll', function() {
+        $counters.each(function() {
+            const $el = $(this);
+            const rect = $el[0].getBoundingClientRect();
+            const winHeight = window.innerHeight;
+            const contentHeight = rect.bottom - rect.top;
+            if (rect.top <= winHeight - (contentHeight * exposurePercentage / 100) && rect.bottom >= (contentHeight * exposurePercentage / 100)) {
+                $el.addClass('active');
+            }
+            if (loop && (rect.bottom <= 0 || rect.top >= window.innerHeight)) {
+                $el.removeClass('active');
+            }
+          });
+        }).scroll();
+      });
+    </script>
 
 </body>
 </html>

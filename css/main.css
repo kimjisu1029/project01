@@ -44,32 +44,98 @@ body{
 .slide h2{text-indent: -9999px;}
 /* 메인시작 */
 
-main{transform: translateY(-200px);}    /* 메인이미지 올리려고 높이값 위로 */
-
+main{
+  /* 메인이미지 올리려고 높이값 위로 */
+  transform: translateY(-200px);
+  width: 100%;
+}
 /* 메인 슬라이드 */
-.silde_inner{   /* 메인슬라이드 내부 텍스트 크기 및 간격 */
-  width: 1200px;
-  margin: 0 auto;
+.visual_box{
+  position: relative;
 }
-.slide p{   /* 메인슬라이드 내부 텍스트 조정 */
+.visual_box .swiper {
+  width: 100%;
+  height: 1024px;
+}
+.visual_box .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.visual_box .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.visual_box .autoplay-progress {
   position: absolute;
-  top: 700px;
-  z-index: 999;
-  font-size: var(--font_size_18);
-  line-height: 180%;
-}
-.slide_txt{   /* 메인슬라이드 맨윗줄 텍스트(좋은 술은~) */
-  font-size: var(--font_size_24);
-  line-height: 300%;
+  right: 10%;
+  bottom: 10%;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
+  color: var(--sub_color03);
 }
-
+.visual_box .autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: var(--main_color01);
+  fill: none;
+  stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}
+/* 버튼 서식 편집 */
+/* 슬라이드 좌,우측 버튼 */
+.visual_box .swiper-button-next, .visual_box .swiper-button-prev{
+  color: #fff;
+  text-shadow: 0px 0px 3px #000;
+}
+/* 슬라이드 아래 버튼 버튼 비활성화 */
+.visual_box .swiper-pagination-bullet{
+  background: var(--sub_color03);
+  width: 70px; height: 5px;
+  border-radius: 0px;
+  opacity: 60%;
+}
+/* 슬라이드 아래 버튼 버튼 활성화 */
+.visual_box .swiper-pagination-bullet-active{
+  background: var(--main_color01);
+  opacity: 100%;
+}
 /* h4 타이틀 전체 */
 h4{
   text-align: center;
   font-size: var(--font_size_32);
   line-height: 300%;
   }
+  .visual_box .silde_inner{
+  position: absolute;
+  bottom: 10%; left: 10%;
+  z-index: 10;
+  font-size: var(--font_size_16);
+  color: #333333;
+  line-height: 180%;
+}
+.visual_box .slide_txt{
+  font-size: var(--font_size_32);
+  font-weight: bold;
+  line-height: 300%;
+}
 /* ----------------------------------------- */
 /* 2. 제품소개 */
 .menu_box{
@@ -84,7 +150,7 @@ h4{
 .menu_box .swiper{
   width: 1200px;
   height: 100%;
-  padding: 50px 0px 100px 0px;
+  padding: 40px 0px 100px 0px;
 }
 .menu_box .swiper-slide {
   text-align: center;
@@ -107,7 +173,7 @@ h4{
 }
 .menu_box .swiper-pagination-bullet{
   background: var(--sub_color01);
-  width: 15px; height: 15px;
+  width: 10px; height: 10px;
   border-radius: 100%;
   opacity: 60%;
 }
@@ -116,7 +182,7 @@ h4{
   opacity: 100%;
 }
 /* 자세히보기 버튼박스 디자인 */
-#readmore{
+.readmore{
   display: inline-block;
   margin-top: 20px;
   font-family: var(--sub_font);
@@ -126,7 +192,7 @@ h4{
   border: 1px solid var(--sub_color03);
   border-radius: 30px;
 }
-#readmore:hover{
+.readmore:hover{
   background: var(--main_color02);
   font-weight: bold;
 }
@@ -170,7 +236,7 @@ figcaption > h5{
 /* ----------------------------------------- */
 /* 3. 아티클 회사소개 */
 .company{   /* 회사소개 백그라운드 이미지 */
-  width: 100%; height: 690px;
+  width: 100%; height: 500px;
   background: url(../images/company_bg.jpg);
   background-color: var(--sub_color02);
   background-repeat: no-repeat;
@@ -183,7 +249,7 @@ figcaption > h5{
 .company_inner{   /* 회사소개 이미지 속 텍스트 박스 */
   width: 1200px; margin: 0 auto;
   position: relative;
-  left: 0px; top: 350px;
+  left: 0px; bottom: -250px;
   line-height: 200%;
   font-size: var(--font_size_16);
 }
@@ -192,14 +258,14 @@ figcaption > h5{
   line-height: 70px;
 }
 .company_btn{margin-top: 50px;}   /* 회사소개 자세히보기 버튼 */
-#readmore2{   /* 회사소개 자세히보기 버튼 디자인 */
+.readmore2{   /* 회사소개 자세히보기 버튼 디자인 */
   padding: 10px 25px;
   background: rgba(255,255,255,0.5);
   border: none;
   border-radius: 30px;
   color: var(--txt_color01);
 }
-#readmore2:hover{   /* 회사소개 자세히보기 버튼 호버 */
+.readmore2:hover{   /* 회사소개 자세히보기 버튼 호버 */
   background: #fff;
   color: var(--txt_color02);
 }
@@ -239,6 +305,7 @@ figcaption > h5{
   width: 1200px;
   height: 780px;
   margin: 0 auto;
+  margin-top: 50px;
   padding-top: 50px;
   /* overflow: hidden; */
   position: relative;
@@ -291,7 +358,8 @@ figcaption > h5{
 .p_swiper-button-next, .p_swiper-button-prev{
   font-size: 40px;
   padding: 10px 15px;
-  background-color: rgba(255,255,255,.7);
+  color: #fff;
+  text-shadow: 0px 0px 3px #000;
   display: block;
   border-radius: 100%;
 }
@@ -329,4 +397,7 @@ figcaption > h5{
 .x_icon{
   width: 20px;
   padding: 0px 15px;
+}
+.insta_box .readmore{
+  margin-top: -30px;
 }

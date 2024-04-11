@@ -15,37 +15,8 @@
   <!-- 4. 아이콘폰트(폰트어썸) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-  <style>
-    /* 1. 메인슬라이드 */
-    .swiper {width: 100%;height: 1024px;}
-    .swiper-slide {
-      text-align: center;font-size: 18px;background: #fff;display: flex;
-      justify-content: center;align-items: center;
-    }
-    .swiper-slide img {display: block;width: 100%;height: 100%;object-fit: cover;}
-    .swiper {margin-left: auto;margin-right: auto;}
-
-    /* 슬라이드 콘트롤 버튼 서식 편집하기 */
-    .swiper-pagination{transform: translateY(-50px);}
-    .swiper-pagination-bullet{
-      background: #fff;
-      width: 50px;
-      border-radius: 0px;
-      opacity: 60%;
-      text-shadow: 0px 0px 5px #000;
-    }
-    .swiper-pagination-bullet-active{
-      background: #ff8c00;
-      opacity: 100%;
-    }
-
-    /* 슬라이드 좌우 클릭 버튼 편집하기 */
-    .swiper-button-next, .swiper-button-prev{
-      color: #fff !important;
-    }
-  </style>
   <!-- 사용자가 현재 페이지에 접속을 하면 접속한 디바이스기기를 체크하여 모바일, 태블릿일경우 모바일 페이지로 이동 -->
   <script>
     //사용자가 접속한 디바이스 기기 체크하기
@@ -68,6 +39,7 @@
   <form name="검색" method="post" action="search">
   <!-- 헤더영역 시작 -->
   <header>
+    <div class="header_box"></div>
     <div class="h_top">
       <h1>
         <a href="index.html" title="메인페이지로 바로가기">
@@ -95,7 +67,6 @@
         </div>
       </nav>
     </div>
-
     <div class="h_bottom">
       <nav class="gnb">
         <ul>
@@ -152,43 +123,35 @@
   <!-- 메인영역 시작 -->
   <main>
     <!-- 1. 메인 슬라이드 -->
-    <article class="slide scroll_on">
+    <article class="visual_box">
       <h2>메인슬라이드</h2>
-      <div class="swiper mySwiper">
+      <div class="swiper main_slide">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <a href="#" title="슬라이드1">
-              <img src="./images/main_slide1.jpg" alt="슬라이드1">
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="#" title="슬라이드2">
-              <img src="./images/main_slide2.jpg" alt="슬라이드2">
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="#" title="슬라이드3">
-              <img src="./images/main_slide3.jpg" alt="슬라이드3">
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="#" title="슬라이드4">
-              <img src="./images/main_slide4.jpg" alt="슬라이드4">
-            </a>
-          </div>
+          <div class="swiper-slide"><img src="./images/main_slide1.jpg" alt="슬라이드1"></div>
+          <div class="swiper-slide"><img src="./images/main_slide2.jpg" alt="슬라이드2"></div>
+          <div class="swiper-slide"><img src="./images/main_slide3.jpg" alt="슬라이드3"></div>
+          <div class="swiper-slide"><img src="./images/main_slide4.jpg" alt="슬라이드4"></div>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
+        <div class="autoplay-progress">
+          <svg viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="20"></circle>
+          </svg>
+          <span></span>
+        </div>
+        <div class="silde_inner">
+          <p><span class="slide_txt">좋은 술은 좋은 재료로부터 시작됩니다.</span><br>
+            국순당은 지난 1952년 창업 이래 우리 전통주의 근본인 누룩의<br>
+            고유한 제조법을 계승, 발전시키는데 주력하여 현대인의 입맛에 맞게 끊임없이 개선해오고 있습니다.<br>
+            백세주는 반세기 동안 전통주의 외길을 걸어온<br>
+            저희 노력의 결정체로 여러분에게 자신있게 권해드리는 좋은 술입니다.
+          </p>
+        </div>
       </div>
-      <div class="silde_inner">
-        <p><span class="slide_txt">좋은 술은 좋은 재료로부터 시작됩니다.</span><br>
-          국순당은 지난 1952년 창업 이래 우리 전통주의 근본인 누룩의<br>
-          고유한 제조법을 계승, 발전시키는데 주력하여 현대인의 입맛에 맞게 끊임없이 개선해오고 있습니다.<br>
-          백세주는 반세기 동안 전통주의 외길을 걸어온<br>
-          저희 노력의 결정체로 여러분에게 자신있게 권해드리는 좋은 술입니다.
-        </p>
-      </div>
+
+
     </article>
     <!-- 2. 제품소개 : 0329 라디오버튼을 활용한 이미지 슬라이드 참고 -->
     <article class="menu_box scroll_on">
@@ -198,7 +161,7 @@
       <input type="radio" id="tab03" name="a"><label for="tab03">막걸리</label>
 
       <!-- 1. 신제품 -->
-      <div class="swiper menu_slide1">
+      <div class="swiper menu_slide1"  >
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <figure>
@@ -209,7 +172,7 @@
                   <b>용량</b> 750ml, 350ml<br>
                   <b>알코올도수</b> 3.5도<br>
                 </p>
-                <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
               </figcaption>
             </figure>
           </div>
@@ -223,7 +186,7 @@
                 <b>알코올도수</b> 3.5도<br>
               </p>
               <p>
-                <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
               </figcaption>
             </figure>
           </div>
@@ -237,7 +200,7 @@
                   <b>알코올도수</b> 18도<br>
                 </p>
                 <p>
-                  <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                  <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
               </figcaption>
             </figure>
           </div>
@@ -251,7 +214,7 @@
                   <b>알코올도수</b> 13도<br>
                 </p>
                 <p>
-                  <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                  <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
               </figcaption>
             </figure>
           </div>
@@ -260,7 +223,7 @@
       </div>
 
       <!-- 2. 백세주 -->
-      <div class="swiper menu_slide2">
+      <div class="swiper menu_slide2"  >
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <figure>
@@ -272,7 +235,7 @@
                   <b>알코올도수</b> 13도<br>
                 </p>
                 <p>
-                  <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                  <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
                 </p>
               </figcaption>
             </figure>
@@ -287,7 +250,7 @@
                 <b>알코올도수</b> 18도<br>
               </p>
               <p>
-                <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
                 </p>
               </figcaption>
             </figure>
@@ -302,7 +265,7 @@
                   <b>알코올도수</b> 13도<br>
                 </p>
                 <p>
-                  <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                  <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
                 </p>
               </figcaption>
             </figure>
@@ -317,7 +280,7 @@
                   <b>알코올도수</b> 15도<br>
                 </p>
                 <p>
-                  <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                  <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
                 </p>
               </figcaption>
             </figure>
@@ -332,7 +295,7 @@
                   <b>알코올도수</b> 15도<br>
                 </p>
                 <p>
-                  <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                  <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
                 </p>
               </figcaption>
             </figure>
@@ -342,7 +305,7 @@
       </div>
 
       <!-- 3. 막걸리 -->
-      <div class="swiper menu_slide3">
+      <div class="swiper menu_slide3"  >
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <figure>
@@ -354,7 +317,7 @@
                   <b>알코올도수</b> 6도<br>
                 </p>
                 <p>
-                  <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                  <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
                 </p>
               </figcaption>
             </figure>
@@ -369,7 +332,7 @@
                 <b>알코올도수</b> 6도<br>
               </p>
               <p>
-                <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
                 </p>
               </figcaption>
             </figure>
@@ -384,8 +347,9 @@
                   <b>알코올도수</b> 5도<br>
                 </p>
                 <p>
-                  <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
-                </p>ion>
+                  <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                </p>
+              </figcaption>
             </figure>
           </div>
           <div class="swiper-slide">
@@ -398,7 +362,7 @@
                   <b>알코올도수</b> 5.8도<br>
                 </p>
                 <p>
-                  <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                  <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
                 </p>
               </figcaption>
             </figure>
@@ -413,7 +377,7 @@
                   <b>알코올도수</b> 3도<br>
                 </p>
                 <p>
-                  <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                  <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
                 </p>
               </figcaption>
             </figure>
@@ -428,7 +392,7 @@
                   <b>알코올도수</b> 7도<br>
                 </p>
                 <p>
-                  <a href="#" title="제품 자세히보기" id="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+                  <a href="#" title="제품 자세히보기" class="readmore">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
                 </p>
               </figcaption>
             </figure>
@@ -439,7 +403,7 @@
     </article>
 
     <!-- 3. 회사소개 -->
-    <article class="arti_company scroll_on">
+    <article class="arti_company scroll_on"  >
       <div class="company">
         <div class="company_inner">
           <h5>국순당</h5>
@@ -448,7 +412,7 @@
             국순당은 술을 빚기 전에 먼저 사람을 생각합니다.<br>
           </p>
           <p class="company_btn">
-            <a href="#" title="제품 자세히보기" id="readmore2">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
+            <a href="#" title="제품 자세히보기" class="readmore2">자세히보기 <i class="fa-solid fa-chevron-right"></i></a>
           </p>
         </div>
       </div>
@@ -477,41 +441,41 @@
     </article>
 
     <!-- 4. 광고이야기 : 0329 라디오버튼을 활용한 이미지 슬라이드 참고 -->
-    <div class="poster_box scroll_on">
+    <div class="poster_box"  >
       <h4>국순당 광고이야기</h4>
 
-      <div #swiperRef="" class="swiper post_slide">
+      <div class="swiper post_slide">
         <div class="swiper-wrapper poster_inner">
           <div class="swiper-slide poster_card">
             <img src="./images/poster_01.jpg" alt="광고포스터1">
             <p>국순당 쌀 바나나 리뉴얼 출시
-            <p class="poster_date">2023.12</span></p>
+            <p class="poster_date">2023.12</p>
           </div>
 
           <div class="swiper-slide poster_card">
             <img src="./images/poster_02.jpg" alt="광고포스터2">
             <p>국순당 과하 출시
-            <p class="poster_date">2023.07</span></p>
+            <p class="poster_date">2023.07</p>
           </div>
           <div class="swiper-slide poster_card">
             <img src="./images/poster_03.jpg" alt="광고포스터3">
             <p>백세주 30 출시
-            <p class="poster_date">2022.12</span></p>
+            <p class="poster_date">2022.12</p>
           </div>
           <div class="swiper-slide poster_card">
             <img src="./images/poster_04.jpg" alt="광고포스터4">
             <p>국순당 칠성막사 출시
-            <p class="poster_date">2022.04</span></p>
+            <p class="poster_date">2022.04</p>
           </div>
           <div class="swiper-slide poster_card">
             <img src="./images/poster_05.jpg" alt="광고포스터5">
             <p>국순당 쌀 바밤바밤 출시
-            <p class="poster_date">2021.11</span></p>
+            <p class="poster_date">2021.11</p>
           </div>
           <div class="swiper-slide poster_card">
             <img src="./images/poster_01.jpg" alt="광고포스터1">
             <p>국순당 쌀 죠리퐁당 출시
-            <p class="poster_date">2021.06</span></p>
+            <p class="poster_date">2021.06</p>
           </div>
         </div>
       </div>
@@ -519,51 +483,10 @@
         <i class="fa-solid fa-chevron-right p_swiper-button-next"></i>
         <i class="fa-solid fa-chevron-left p_swiper-button-prev"></i>
       </div>
-
-      </p>
-
-      <!-- <div class="poster_inner">
-        <div class="poster_card">
-          <img src="./images/poster_01.jpg" alt="광고포스터1">
-          <p>국순당 쌀 바나나 리뉴얼 출시
-          <p class="poster_date">2023.12</span></p>
-        </div>
-        <div class="poster_card">
-          <img src="./images/poster_02.jpg" alt="광고포스터2">
-          <p>국순당 과하 출시
-          <p class="poster_date">2023.07</span></p>
-        </div>
-        <div class="poster_card">
-          <img src="./images/poster_03.jpg" alt="광고포스터3">
-          <p>백세주 30 출시
-          <p class="poster_date">2022.12</span></p>
-        </div>
-        <div class="poster_card">
-          <img src="./images/poster_04.jpg" alt="광고포스터4">
-          <p>국순당 칠성막사 출시
-          <p class="poster_date">2022.04</span></p>
-        </div>
-        <div class="poster_card">
-          <img src="./images/poster_05.jpg" alt="광고포스터5">
-          <p>국순당 쌀 바밤바밤 출시
-          <p class="poster_date">2021.11</span></p>
-        </div>
-        <div class="poster_card">
-          <img src="./images/poster_01.jpg" alt="광고포스터1">
-          <p>국순당 쌀 죠리퐁당 출시
-          <p class="poster_date">2021.06</span></p>
-        </div>
-        <div class="btn_l">
-          <i class="fa-solid fa-chevron-left"></i>
-        </div>
-        <div class="btn_r">
-          <i class="fa-solid fa-chevron-right"></i>
-        </div> -->
-      </div>
     </div>
 
     <!-- 5. 인스타그램 -->
-    <div class="insta_box scroll_on">
+    <div class="insta_box"  >
       <h4><i class="fa-brands fa-instagram"></i> <img src="./images/x_icon.svg" alt="X아이콘" class="x_icon"> @kooksoondang</h4>
       <ul class="insta_grid">
         <li><img src="./images/insta_01.jpg" alt="인스타이미지1"></li>
@@ -576,7 +499,7 @@
         <li><img src="./images/insta_08.jpg" alt="인스타이미지8"></li>
       </ul>
       <p>
-        <a href="#" title="인스타 더보기" id="readmore">더보기 <i class="fa-solid fa-chevron-right"></i></a>
+        <a href="#" title="인스타 더보기" class="readmore">더보기 <i class="fa-solid fa-chevron-right"></i></a>
       </p>
     </div>
   </main>
@@ -585,14 +508,11 @@
   <footer>
     <!-- TOP버튼 -->
     <aside>
-      <div class="top_btn">
-        <a href="#">
-          <div>
-              <i class="fa-solid fa-chevron-up"></i><br>
-              TOP
-          </div>
-        </a>
-      </div>
+      <p class="top_btn">
+        <a href="#top">
+          <i class="fa-solid fa-chevron-up"></i>
+        <br>TOP</a>
+      </p>
     </aside>
 
     <div class="f_top">
@@ -668,24 +588,35 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-      // 1. 메인비주얼 슬라이드
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1,   //화면에 보여지는 이미지 개수
-        // spaceBetween: 30,       // 이미지와 이미지 사이 간격
-        loop: false,   // 로테이션 반복설정_ true(반복) / false(반복없음)
-        pagination: {   // 컨트롤버튼 옵션
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {   // 좌, 우버튼 옵션
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
+    // 1. 메인비주얼 슬라이드
+    const progressCircle = document.querySelector(".autoplay-progress svg");
+    const progressContent = document.querySelector(".autoplay-progress span");
+    var swiper = new Swiper(".main_slide", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      on: {
+        autoplayTimeLeft(s, time, progress) {
+          progressCircle.style.setProperty("--progress", 1 - progress);
+          progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+        }
+      }
+    });
 
       // 2. 제품소개 슬라이드
       var swiper2 = new Swiper(".menu_slide1", {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 30,
         pagination: {
           el: ".swiper-pagination",
@@ -693,7 +624,7 @@
         },
       });
       var swiper3 = new Swiper(".menu_slide2", {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 30,
         pagination: {
           el: ".swiper-pagination",
@@ -701,7 +632,7 @@
         },
       });
       var swiper4 = new Swiper(".menu_slide3", {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 30,
         pagination: {
           el: ".swiper-pagination",
@@ -762,27 +693,59 @@
         ]);
       });
 
-      // 전체 메뉴들 스크립트
-      $(document).ready(function() {
-        const $counters = $(".scroll_on");
-        const exposurePercentage = 100;
-        const loop = true;
-      $(window).on('scroll', function() {
-        $counters.each(function() {
-            const $el = $(this);
-            const rect = $el[0].getBoundingClientRect();
-            const winHeight = window.innerHeight;
-            const contentHeight = rect.bottom - rect.top;
-            if (rect.top <= winHeight - (contentHeight * exposurePercentage / 100) && rect.bottom >= (contentHeight * exposurePercentage / 100)) {
-                $el.addClass('active');
-            }
-            if (loop && (rect.bottom <= 0 || rect.top >= window.innerHeight)) {
-                $el.removeClass('active');
-            }
-          });
-        }).scroll();
+    </script>
+
+    <!-- 헤더 백그라운드 스크롤 -->
+    <script>
+      window.addEventListener('scroll', function() {
+        var element = document.querySelector('.header_box');
+        var scrollPosition = window.scrollY;
+      
+        // 스크롤 위치에 따라 opacity 값 조절
+        var maxOpacity = 100;
+        var minOpacity = 0;
+        var maxScroll = 100; // opacity를 0에서 100으로 변경하기 위한 스크롤 값
+        var opacity = (scrollPosition / maxScroll) * maxOpacity;
+      
+        // opacity 값을 0과 100 사이로 유지
+        opacity = Math.min(maxOpacity, opacity);
+        opacity = Math.max(minOpacity, opacity);
+      
+        // opacity 값을 적용
+        element.style.opacity = opacity / 100; // 0에서 1 사이의 값으로 변환하여 설정
+      });
+      </script>
+
+    <!-- TOP버튼 -->
+    <script>
+      let topbtn = document.querySelector(".top_btn");
+
+      window.addEventListener("scroll", function(){
+        let value = window.scrollY;
+        console.log("scrolY", value);
+
+        if(value >= 729){
+          topbtn.style.display = "block";
+        } else{
+          topbtn.style.display = "none"
+        }
       });
     </script>
 
+    <!-- 박스 스크립트 -->
+    <script>
+    // window.addEventListener('scroll', function() {
+    //     // scroll_on 아이디 선택
+    //     var scroll_box = document.getElementById('scroll_on');
+        
+    //     // 현재 스크롤 위치 확인
+    //     var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    //     // div 박스의 위치 조정
+    //     // 스크롤 위치에 따라 div 박스를 아래로 내려오게
+    //     scroll_box.style.position = 'fixed';
+    //     scroll_box.style.top = scrollTop + 'px';
+    // });
+    </script>
 </body>
 </html>
